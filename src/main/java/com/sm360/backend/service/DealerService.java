@@ -36,11 +36,11 @@ public interface DealerService {
      * Updates the given dealer with the new name.
      *
      * @param id   The ID of the dealer to update.
-     * @param name The new name for the dealer.
+     * @param dealer The new dealer information for the dealer.
      * @return The updated dealer.
      * @throws DealerNotFoundException If no dealer exists with the given ID.
      */
-    Dealer updateDealer(Long id, String name) throws DealerNotFoundException;
+    Dealer updateDealer(Long id, Dealer dealer) throws DealerNotFoundException;
 
     /**
      * Deletes the dealer with the given ID.

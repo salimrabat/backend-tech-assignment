@@ -32,9 +32,12 @@ public class DealerServiceImpl implements DealerService {
     }
 
     @Override
-    public Dealer updateDealer(Long id, String name) {
+    public Dealer updateDealer(Long id, Dealer dealer) {
         Dealer existingDealer = getDealerById(id);
-        existingDealer.setName(name);
+        if (dealer.getName() != null)
+            existingDealer.setName(dealer.getName());
+        if (dealer.getTierLimit() > 0)
+            existingDealer.setTierLimit(dealer.getTierLimit());
         return dealerRepository.save(existingDealer);
     }
 

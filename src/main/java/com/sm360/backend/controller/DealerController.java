@@ -90,7 +90,7 @@ public class DealerController {
                             schema = @Schema(implementation = ErrorResponse.class)) })
     })
     public ResponseEntity<Dealer> updateDealer(@PathVariable Long id, @RequestBody Dealer dealer) {
-        Dealer updatedDealer = dealerService.updateDealer(id, dealer.getName());
+        Dealer updatedDealer = dealerService.updateDealer(id, dealer);
         if (updatedDealer != null) {
             return new ResponseEntity<>(updatedDealer, HttpStatus.OK);
         }
