@@ -6,6 +6,7 @@ This is a REST service for managing listings for online advertising service.
 
 - Java 17
 - Maven 3.6.3
+- MySQL
 
 ## Running the Application locally
 1. Clone the repository to your local machine:
