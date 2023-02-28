@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ListingServiceImpl implements ListingService {
@@ -92,11 +91,7 @@ public class ListingServiceImpl implements ListingService {
     }
 
     public Listing getListingById(Long listingId) {
-        Optional<Listing> optionalListing = listingRepository.findById(listingId);
-        if (optionalListing.isEmpty()) {
-            throw new ListingNotFoundException(listingId);
-        }
-        return optionalListing.get();
+        return listingRepository.findById(listingId).orElseThrow(() -> new ListingNotFoundException(listingId));
     }
 
     private int countPublishedListings(Long dealerId) {
